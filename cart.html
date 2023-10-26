@@ -14,82 +14,42 @@
 
   <button onclick="
   {
-    if(cartQuantity + 1>10){
-      alert('Cart is full!');
-    }else{
-      cartQuantity ++;
-      console.log(`Cart quantity: ${cartQuantity}`);
-    }
+    updateCartQuantity(1);
   }">Add to Cart</button>
 
   <button onclick="
   {
-    if(cartQuantity+2 >10){
-      alert('Cart is full!');
-    }else{
-    cartQuantity += 2;
-    console.log(`Cart quantity: ${cartQuantity}`);
-    }
+    updateCartQuantity(2);
   }">+2</button>
 
   <button onclick="
   {
-    if(cartQuantity+3 > 10){
-      alert('Cart is full!');
-    }else{
-    cartQuantity += 3;
-    console.log(`Cart quantity: ${cartQuantity}`);
-    }
+    updateCartQuantity(3);
   }">+3</button>
 
   <button onclick="
   {
-    if(cartQuantity+4 > 10){
-      alert('Cart is full!');
-    }else{
-    cartQuantity +=4;
-    console.log(`Cart quantity: ${cartQuantity}`);
-    }
+    updateCartQuantity(4);
   }">+4</button>
 
 <button onclick="
 {
-  if(cartQuantity+5 > 10){
-      alert('Cart is full!');
-    }else{
-  cartQuantity +=5;
-  console.log(`Cart quantity: ${cartQuantity}`);
-    }
+  updateCartQuantity(5);
 }">+5</button>
 
 <button onclick="
 {
-  if(cartQuantity-1<=0){
-    alert('Not enough items in the cart');
-  }else{
-    cartQuantity --;
-    console.log(`Cart quantity: ${cartQuantity}`);
-  }
+  updateCartQuantity(-1);
 }">Remove from Cart</button>
 
 <button onclick="
 {
-  if(cartQuantity-2<=0){
-    alert('Not enough items in the cart');
-  }else{
-  cartQuantity -=2;
-  console.log(`Cart quantity: ${cartQuantity}`);
-  }
+  updateCartQuantity(-2);
 }">-2</button>
 
 <button onclick="
 {
-  if(cartQuantity-3<=0){
-    alert('Not enough items in the cart');
-  }else{
-  cartQuantity -=3;
-  console.log(`Cart quantity: ${cartQuantity}`);
-  }
+  updateCartQuantity(-3);
 }">-3</button>
 
   <button onclick="
@@ -98,13 +58,27 @@
    
     console.log('Cart was reset');
     console.log(`Cart quantity: ${cartQuantity}`);
-    alert('cart is empty!')
   }">Reset Cart</button>
   <script>
     let cartQuantity=0;
     const maxCartQuantity = 10;
 
     console.log(cartQuantity>maxCartQuantity ? `The cart is full! Don't update the quantity`:`Cart quantity: ${cartQuantity}`);
+
+    function updateCartQuantity(productQuantity){
+      if(cartQuantity+productQuantity >10){
+      alert('Cart is full!');
+      return;
+      } 
+      
+      if(cartQuantity + productQuantity<0){
+      alert('Cart is Empty!');
+      return;
+      }
+
+    cartQuantity += productQuantity;
+    console.log(`Cart quantity: ${cartQuantity}`);
+    }
   </script>
 </body>
 </html>
