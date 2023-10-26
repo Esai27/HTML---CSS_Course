@@ -32,6 +32,43 @@
 
     delete product.feedback;
     console.log(product);
+
+    //Dot Notation 
+    console.log(product.name);
+    console.log(product.brand);
+
+    //bracket notation
+    console.log(product['name']);
+    console.log(product['price']);
+
+    //nested object
+    const product2 = {
+      'delivery-day' : '1 day',
+      feedback : {
+        stars : 4.6,
+        'feedback-points' : 90,
+        comment : 'Good'
+      }
+    };
+
+    console.log(product2);
+    console.log(product2.feedback.comment);
+    console.log(product2['delivery-day']);
+
+    //function inside object
+    const product3 = {
+      name : 'skirt',
+      quality : 'good',
+      size : 'M',
+      fun : function fun1(){
+        console.log('Hello All!')
+      }
+    };
+    product3.fun();
+    console.log(typeof console);
+    console.log(typeof console.log);
+    console.log(typeof product)
+    console.log(typeof name);
   </script>
 </body>
 </html>
